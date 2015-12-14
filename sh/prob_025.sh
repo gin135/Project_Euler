@@ -7,5 +7,5 @@ while :; do # フィボナッチ数列の出力
     a=$b;
     b=$c;
 done \
-    |
-awk 'length($0) == 1000 {print NR; exit}'   # 桁数が1000になる最初の項番号の出力
+    | # 桁数が1000になる最初の項番号の出力
+awk 'length($0) == 1000 {print NR; exit}'
