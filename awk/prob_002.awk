@@ -1,4 +1,4 @@
-#!/bin/env mawk -f
+#!/bin/mawk -f
 
 BEGIN {
     a = 1
