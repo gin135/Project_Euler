@@ -1,12 +1,8 @@
 #!/bin/sh
 
-for i in $(seq 100 999); do
-    for j in $(seq 100 999); do
-        echo $i $j
-    done
-done \
+awk 'BEGIN {for(i=100; i<=999; i++){for(j=100; j<=999; j++){print i, j}}}' \
 | # 3桁の数の組合せの出力
-sed -e 's/ / * /' \
+tr ' ' '*' \
 | # 積の算出式の生成
 bc \
 | # 積の出力
