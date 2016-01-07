@@ -1,11 +1,11 @@
 #!/bin/sh
 
-seq 2 2147483647 \
+yes \
+|
+awk '{print NR}' \
 |
 factor \
 |
-awk 'NF == 2{print $2}' \
+awk 'NF == 2 {print $2}' \
 |
-head -n 10001 \
-|
-tail -n 1
+awk 'NR == 10001 {print; exit}'
