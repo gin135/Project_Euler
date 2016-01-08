@@ -2,7 +2,7 @@
 
 seq 1 1000 \
 |
-sed -e 's;.*;curl -s --retry 5 "http://www.wolframalpha.com/input/?i=&";' \
+sed -e 's;.*;curl -s --retry 100 "http://www.wolframalpha.com/input/?i=&";' \
 |
 xargs -P 0 -i sh -c {} \
 |
