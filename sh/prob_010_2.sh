@@ -1,6 +1,6 @@
 #!/bin/sh
 
-primes 2 \
-| # 素数の列挙
-awk '2000000 < $0 {print sum; exit} {sum+=$0}'
-  # 2000000以下の全ての素数の和の出力
+primes 2 2000000 \
+| # 2000000以下の素数の列挙
+awk '{sum+=$0} END {print sum}'
+  # 和の出力
