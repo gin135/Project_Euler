@@ -11,6 +11,6 @@ factor \
 awk '{sod=1; for(i=2;i<=NF;i++){cod[$i] += 1}; for(i in cod){sod *= (cod[i] + 1);} print $1,sod; for(i in cod){delete cod[i]}}' \
 | # 各三角数の約数の個数を出力
 awk '$2 > 500 {print $1; exit}' \
-| # 約数の個数が初めて500を超える三角数の抽出
+| # 約数の個数が初めて500を超える三角数の出力
 tr -d ':'
   # 出力の整形
