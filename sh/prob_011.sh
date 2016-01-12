@@ -29,7 +29,8 @@ awk '
     END{
         for(i=1; i<=NR; i++){for(j=1; j<=NF-3; j++){print arr[i,j], arr[i,j+1], arr[i,j+2], arr[i,j+3]}};
         for(i=1; i<=NF; i++){for(j=1; j<=NR-3; j++){print arr[j,i], arr[j+1,i], arr[j+2,i], arr[j+3,i]}};
-        for(i=1; i<=NR-3; i++){for(j=1; j<=NF-3; j++){print arr[i,j], arr[i+1,j+1], arr[i+2,j+2], arr[i+3,j+3] "\n" arr[i,j+3], arr[i+1,j+2], arr[i+2,j+1], arr[i+3,j]}};}
+        for(i=1; i<=NR-3; i++){for(j=1; j<=NF-3; j++){print arr[i,j], arr[i+1,j+1], arr[i+2,j+2], arr[i+3,j+3] "\n" arr[i,j+3], arr[i+1,j+2], arr[i+2,j+1], arr[i+3,j]}};
+    }
     ' \
 | # 横・縦・斜め(左->右、右->左)の4パターンの数列の出力
 tr ' ' '*' \
