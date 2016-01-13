@@ -22,7 +22,13 @@ EOS
 tac > /tmp/$$_1_data;
 
 for i in `seq 1 15`; do
-    awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' < /tmp/$$_${i}_data > /tmp/$$_$[${i}+1]_data
+    awk '
+        ORS="";
+        NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}}
+        NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"}
+        2 < NR {ORS="\n"; print}
+        ' \
+    < /tmp/$$_${i}_data > /tmp/$$_$[${i}+1]_data
 done;
 
 cat /tmp/$$_${i}_data;
