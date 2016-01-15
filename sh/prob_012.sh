@@ -11,10 +11,10 @@ bc \
 factor \
 | # 三角数の素因数分解
 awk '{
-        sod=1;
+        sol=1;
         for(i=2; i<=NF; i++){d[$i]++};
-        for(n in d){sod*=(d[n]+1); delete d[n]};
-        print $1, sod;
+        for(n in d){sol*=(d[n]+1); delete d[n]};
+        print $1, sol;
     }' \
 | # 各三角数について約数の個数を出力
 gawk '500 < $2 {print gensub(/:/, "", "g", $1); exit}'
