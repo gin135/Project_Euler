@@ -2,10 +2,10 @@
 
 seq 1 999999 \
 | # 100万未満の数の生成
-awk 'ORS=""; {n=$0; while(n!=1){print n " "; n=(n%2 == 0) ? n/2 : 3*n + 1}; print n "\n"}' \
+mawk 'ORS=""; {n=$0; while(n!=1){print n " "; n=(n%2 == 0) ? n/2 : 3*n + 1}; print n "\n"}' \
 | # コラッツ数列の出力
-gawk '{print $1,gensub(/[0-9]* /, "s", "g")}' \
-| # コラッツ数列の長さをスペースに変換
+gawk '{print $1, gensub(/[0-9]* /, "s", "g")}' \
+| # コラッツ数列の長さを'/s+/'に変換
 awk '{print $1, length($2)}' \
 | # コラッツ数列の長さの出力
 sort -k 2n,2 \
