@@ -18,33 +18,34 @@
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 EOS
 ) \
-|
+| # 三角形の出力
 tac \
-|
+| # 三角形を逆順に出力
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 14段目における最大値の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 13段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 12段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 11段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 10段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 9段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 8段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 7段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 6段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 5段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 4段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 3段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}' \
-|
+| # 2段目の集計
 awk 'ORS=""; NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}} NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"} 2 < NR {ORS="\n"; print}'
+  # 1段目の集計(最大値の出力)
