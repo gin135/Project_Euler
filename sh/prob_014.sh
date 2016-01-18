@@ -2,7 +2,7 @@
 
 seq 1 999999 \
 | # 100万未満の数の生成
-mawk 'ORS=""; {n=$0; while(n!=1){print n " "; n=(n%2) ? 3*n + 1 : n/2}; print n "\n"}' \
+gawk 'ORS=""; {n=$0; while(n!=1){print n " "; n=(n%2) ? 3*n + 1 : n/2}; print n "\n"}' \
 | # コラッツ数列の出力
 gawk '{print $1, gensub(/[0-9]* /, "s", "g")}' \
 | # コラッツ数列の長さを'/s+/'に変換
