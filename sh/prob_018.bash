@@ -29,8 +29,8 @@ for i in `seq 1 15`; do
         NR == 2 {for(i=1; i<=NF; i++){print ($i+=(arr[i] > arr[i+1]) ? arr[i] : arr[i+1]), ""}; print "\n"}
         2 < NR {ORS="\n"; print}
         ' \
-    < /tmp/$$_${i}_data > /tmp/$$_$[${i}+1]_data;
+    < /tmp/$$_${i}_data > /tmp/$$_$[${i}+1]_data;   # 三角形を底辺から順に大きい数値を合算
 done;
 
-cat /tmp/$$_${i}_data;
-rm /tmp/$$_*_data;
+cat /tmp/$$_${i}_data;  # 最大値の出力
+rm /tmp/$$_*_data;      # 一時ファイルの削除
