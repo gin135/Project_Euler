@@ -22,7 +22,7 @@ EOS
 tac > /tmp/$$_1_data;
   # 三角形を逆順に出力
 
-for n in `seq 1 15`; do
+for n in `seq 1 14`; do
     awk '
         ORS="";
         NR == 1 {for(i=1; i<=NF; i++){arr[i]=$i}}
@@ -32,5 +32,5 @@ for n in `seq 1 15`; do
     < /tmp/$$_${n}_data > /tmp/$$_$[${n}+1]_data;   # 三角形を底辺から順に大きい数値を合算
 done;
 
-cat /tmp/$$_${n}_data;  # 最大値の出力
+cat /tmp/$$_$[${n}+1]_data;  # 最大値の出力
 rm /tmp/$$_*_data;      # 一時ファイルの削除
