@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cat p022_names.txt \
+curl -s 'https://projecteuler.net/project/resources/p022_names.txt' \
 | # 単語データの出力
 tr ',' '\n' \
 | # 単語を行ごとに分離
