@@ -3,9 +3,9 @@
 seq 1 1000 \
 | # 1~1000の数字の生成
 sed -e 's;.*;curl -s --retry 100 --retry-delay 2 "http://www.wolframalpha.com/input/?i=&";' \
-| # スクレイピングコマンド(並列実行)の生成
+| # スクレイピングコマンドの生成
 xargs -P 0 -i sh -c {} \
-| # Wolfram Alphaさん、すいませんすいませんすいません...
+| # スクレイピングの並列実行(Wolfram Alphaさん、すいませんすいませんすいません...)
 grep 'pod_0200.push' \
 | # 数字の英単語行の抽出
 sed -e 's/[^:]*: "\(.*\)","mI.*/\1/' \
