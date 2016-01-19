@@ -2,16 +2,18 @@
 
 seq 1 100 \
 |
-tr '\n' '*' \
+xargs \
 |
-sed -e 's/*$/\n/' \
+tr ' ' '*' \
 |
 bc \
 |
 tr -d '\\\n' \
 |
-sed -e 's/[0-9]/&+/g' \
+grep -o . \
 |
-sed -e 's/+$/\n/' \
+xargs \
+|
+tr ' ' '+' \
 |
 bc
