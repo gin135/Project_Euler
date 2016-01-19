@@ -21,10 +21,10 @@ awk '
 awk '{sum=0; for(i=2; i<=NF; i++){sum+=$i}; print $1, sum}' \
 | # 真の約数の和の出力
 awk '$1 != $2 {print $0 "\n" $2, $1}' \
-| # 友愛数の抽出
+| # 友愛数候補の生成
 sort -n \
 | # 数列のソート
 uniq -d \
-| # 重複した友愛数の除去
+| # 友愛数の抽出
 awk '{sum+=$1} END {print sum}'
   # 友愛数の総和の出力
