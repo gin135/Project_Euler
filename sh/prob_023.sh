@@ -9,7 +9,7 @@ awk '{s=0; for(i=2; i<=NF; i++){s+=$i}; print $1, s}' \
 awk '$1 < $2 && $0=$1' \
 | # 過剰数の抽出
 awk '{arr[NR]=$0} END {for(i=1; i<=NR; i++){for(j=i; j<=NR; j++){n=arr[i]+arr[j]; print (n <= 28123) ? n : ""}}}' \
-| # 2つの過剰数和の組合せの列挙
+| # 2つの過剰数の和の組合せの列挙
 sort -n \
 | # 組合せを数値順にソート
 uniq \
