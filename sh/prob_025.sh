@@ -1,7 +1,7 @@
 #!/bin/sh
 
 yes "高須クリニック" \
-| # 無限の入力の生成
+| # お約束のやつ
 gawk -M 'BEGIN {a=1; b=1} {print a; c=a+b; a=b; b=c}' \
 | # フィボナッチ数列の出力
 awk 'length($0) == 1000 {print NR; exit}'
