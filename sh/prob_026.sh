@@ -10,7 +10,7 @@ awk '{two=0; five=0; for(i=2;i<=NF;i++){$i==2 ? two++ : ($i==5 ? five++ : 0)}; p
 | # 各数値における約数2, 5の数の集計
 awk '{print $1,$1/(2^$2)/(5^$3)}' \
 | # 各数値を2^aおよび5^bで除算
-gawk -M '$2==1{print $1,0; next}; {i=1; while(10^i % $2 != 1){i++}; print $1,i}' \
+gawk -M '$2==1{print $1,0; next}; {l=1; while(10^l % $2 != 1){l++}; print $1,l}' \
 | # 循環節の長さの算出
 sort -k 2,2nr \
 | # 循環節の長さ順にソート
