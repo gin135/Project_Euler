@@ -9,7 +9,7 @@ cat <( \
         # a,bの候補値の生成
     ) \
 | # 素数表およびa,bの候補値の出力
-awk 'NR==1{for(i=1; i<=NF; i++){prime[$i]=$i}; next} {ORS=""; print $0": "; n=0; while(1){eq=n^2+$1*n+$2; if(prime[eq]==0){print "\n"; next}; print eq" "; n++}}' \
+awk 'NR==1{for(i=1; i<=NF; i++){prime[$i]=$i}; next} {ORS=""; print $0" "; n=0; while(1){eq=n^2+$1*n+$2; if(prime[eq]==0){print "\n"; next}; print eq" "; n++}}' \
 | # n=0から始めて、素数を生成できなくなるまで末尾フィールドに出力
 awk '$0=NF" "$0' \
 | # フィールド数を第一フィールドとして付加
