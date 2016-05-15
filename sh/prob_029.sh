@@ -9,6 +9,6 @@ BC_LINE_LENGTH=1000 bc \
 sort -n \
 | # 出力を数値順・昇順にソート
 uniq \
-| # 重複を除去
+| # 重複の除去
 grep -c ""
   # 項数の出力
