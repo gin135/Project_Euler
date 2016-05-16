@@ -1,16 +1,17 @@
 #!/bin/sh
 
-seq 1 9999999 \
-| # 数の生成  ### 各桁を5乗した数の和が元の数と一致する数を調べるには、どの範囲の数を生成すればよいのか、分からない...
-sed -e 's/./& /g' \
-| # 数を各桁毎に分割
-awk '{for(i=1; i<=NF; i++){ORS=""; print $i ^ 5 " "}; print gensub(/ /, "", "g") "\n"}' \
-| # 各桁の5乗した値と、元の数の生成
-awk 'NR == 1 {next} NF == 1 && $1^5 == $NF {print $NF; next} {tmp=0; for(i=1; i<=(NF-1); i++){tmp += $i}; if(tmp == $NF){print $NF}}' \
-| # 各桁を5乗した数の和が元の数と一致する数の出力
-tr '\n' '+' \
-| # 該当数値の合計式の生成
-sed -e 's/+$//' \
-| # 末端の余分な演算子'+'の除去
-bc
-  # 各桁を5乗した数の和が元の数と一致する数の総和の出力
+yes 高須クリニック \
+|
+awk '{s+=9^5; if(s<10^NR){exit}} END{print NR}' \
+|
+awk '{for(i=1;i<=$0;i++){printf("9")}; print ""}' \
+|
+xargs -I@ seq 1 @ \
+|
+grep -v '^1\{1,\}$' \
+|
+awk 'BEGIN{FS="";} {s=0; for(i=1;i<=NF;i++){s+=$i^5}; print $0,s}' \
+|
+awk '$1==$2' \
+|
+awk '{s+=$1} END{print s}'
