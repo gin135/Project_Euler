@@ -6,7 +6,7 @@ awk '{s+=9^5; if(s<10^NR){exit}} END{print NR}' \
 | # 各桁^5の総和の最大桁数の出力
 awk '{for(i=1;i<=$0;i++){printf("9")}; print ""}' \
 | # 探索範囲の終端の出力
-xargs -I@ seq 0 @ \
+xargs -Iend seq 0 end \
 | # 0から999999までの整数の出力
 grep -v '^1\{1,\}$' \
 | # 例外(1のみで構成された値)の除去
